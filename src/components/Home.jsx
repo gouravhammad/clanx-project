@@ -5,7 +5,7 @@ import SignUpForm from "./SignUpForm";
 import LeftSide from "./LeftSide";
 
 //Styles
-import "../app.scss";
+import "../App.scss";
 
 const Home = () => {
   return (
