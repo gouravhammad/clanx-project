@@ -11,7 +11,9 @@ export const ICON_LINKS = {
 
 export const INPUT_TYPE = {
   EMAIL: 'email',
-  TEXT: 'text'
+  TEXT: 'text',
+  CHECKBOX: 'checkbox',
+  SUBMIT: 'submit'
 }
 
 export const NOTIFICATIONS = [
@@ -59,3 +61,5 @@ export const TESTIMONIALS = [
       designation:"Co-Founder Magik Labs"
     },
 ];
+
+export const LOCH_LANDING_PAGE_LINK = 'https://app.loch.one/welcome'

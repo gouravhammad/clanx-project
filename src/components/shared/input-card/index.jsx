@@ -20,7 +20,7 @@ const InputCard = ({
     <div className="input-card">
       <div className="header-cta">
         <img src={icon} alt="input icon" />
-        {cta ? <span>Save</span> : <input type="checkbox" />}
+        {cta ? <span>Save</span> : <input type={INPUT_TYPE.CHECKBOX} />}
       </div>
 
       <p className={`input-label ${type !== INPUT_TYPE.EMAIL ? "small-text" : ""}`}>

@@ -1,3 +1,6 @@
+// Styles
+import './App.scss'
+
 // Component
 import Home from "./components/Home";
 

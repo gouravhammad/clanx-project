@@ -1,7 +1,7 @@
 import React from "react";
 
 // Styles
-import "../../App.scss";
+import './styles.scss';
 
 // Components
 import SignUpForm from "../sign-up-form";
