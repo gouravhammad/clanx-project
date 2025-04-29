@@ -16,6 +16,10 @@
     justify-content: space-between;
     min-width: 190px;
 
+    &:last-child {
+      margin-right: 20px;
+    }
+
     .input-label {
       font-size: 14px;
       font-weight: 500;

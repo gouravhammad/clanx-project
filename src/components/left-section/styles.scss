@@ -146,6 +146,12 @@
         flex-direction: row;
         gap: 1rem;
         padding-right: 1.25rem;
+        overflow-x: auto;
+        white-space: no-wrap;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
     .testimonial-wrap {
