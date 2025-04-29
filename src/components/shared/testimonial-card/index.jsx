@@ -1,15 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Styles
-import './styles.scss'
+import './styles.scss';
+import { DEFAULT_CARD_DATA } from './constants';
 
-const TestimonialCard = ({ quote, author, designation }) => {
-  return (
-    <div className="testimonial-card">
-      <p className="testimonial-author">{author}, <span>{designation}</span></p>
-      <p className="testimonial-quote">"{quote}"</p>
-    </div>
-  );
+const TestimonialCard = ({ quote, author, designation }) => (
+  <div className="testimonial-card">
+    <p className="testimonial-author">
+      {author}, <span>{designation}</span>
+    </p>
+    <p className="testimonial-quote">"{quote}"</p>
+  </div>
+);
+
+TestimonialCard.propTypes = {
+  quote: PropTypes.string,
+  author: PropTypes.string,
+  designation: PropTypes.string,
+};
+
+TestimonialCard.defaultProps = {
+  quote: DEFAULT_CARD_DATA.quote,
+  author: DEFAULT_CARD_DATA.author,
+  designation: DEFAULT_CARD_DATA.designation,
 };
 
 export default TestimonialCard;

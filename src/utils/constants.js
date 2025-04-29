@@ -9,6 +9,11 @@ export const ICON_LINKS = {
     clockIcon: "/assets/icons/clock.svg"
 };
 
+export const INPUT_TYPE = {
+  EMAIL: 'email',
+  TEXT: 'text'
+}
+
 export const NOTIFICATIONS = [
     {
       label: "We'll be sending notifications to you here",
@@ -20,14 +25,14 @@ export const NOTIFICATIONS = [
     {
       label: "Notify me when any whale moves more than",
       placeholder: "$1,000.00",
-      type: "text",
+      type: INPUT_TYPE.TEXT,
       icon: ICON_LINKS.barChartIcon,
       cta: false
     },
     {
       label: "Notify me when any wallet dormant for",
       placeholder: "> 30 days",
-      type: "text",
+      type: INPUT_TYPE.TEXT,
       icon: ICON_LINKS.clockIcon,
       footerText: "becomes active",
       cta: false

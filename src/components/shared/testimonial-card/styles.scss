@@ -1,5 +1,5 @@
 // Variables
-@import "../../../styles/variables";
+@use "../../../styles/variables" as *;
 
 .testimonial-card {
   background: rgba(255, 255, 255, 1);
@@ -9,7 +9,7 @@
   color: rgba(29, 33, 41, 1);
   min-width: 353px;
   text-align: left;
-  
+
   .testimonial-quote {
     font-size: 16px;
     font-weight: 500;

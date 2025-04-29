@@ -1,5 +1,5 @@
 // Variables
-@import "../../../styles/variables";
+@use "../../../styles/variables" as *;
 
 .input-card {
     padding: 14px;
