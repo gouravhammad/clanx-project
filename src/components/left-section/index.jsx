@@ -1,23 +1,17 @@
-//Icons
-import IconBell from "../assets/icons/bell-fill.svg";
-import ImageCohorts from "../assets/cohorts.png";
-import IconEye from "../assets/icons/eye.svg";
-import IconStar from "../assets/icons/star.svg";
+// Components
+import InputCard from "../shared/InputCard";
+import TestimonialCard from "../shared/testimonial-card";
 
-//Components
-import InputCard from "./shared/InputCard";
-import TestimonialCard from "./shared/TestimonialCard";
+// Constants
+import { ICON_LINKS, NOTIFICATIONS, TESTIMONIALS } from "../../utils/constants";
 
-// Data
-import { notifications, testimonials } from "../utils/content";
-
-const LeftSide = () => {
+const LeftSection = () => {
   return (
     <div className="left-side">
       <div className="flex-row first-section">
         <article className="header-wrap">
           <span>
-            <img src={IconBell} alt="bell Icon" />
+            <img src={ICON_LINKS.bellFilledIcon} alt="bell Icon" />
           </span>
           <h1 className="header-title">
             Get notified when a highly correlated whale makes a move{" "}
@@ -29,7 +23,7 @@ const LeftSide = () => {
         </article>
 
         <div className="notification-inputs">
-          {notifications.map((notif, idx) => (
+          {NOTIFICATIONS.map((notif, idx) => (
             <InputCard
               key={idx}
               label={notif.label}
@@ -45,14 +39,14 @@ const LeftSide = () => {
       <div className="watch-section">
         <figure className="dashboard-image">
           <img
-            src={ImageCohorts}
+            src={ICON_LINKS.cohortsImage}
             alt="Whale Dashboard"
             className="dashboard-img"
           />
         </figure>
         <article>
           <span>
-            <img src={IconEye} alt="bell Icon" />
+            <img src={ICON_LINKS.eyeIcon} alt="bell Icon" />
           </span>
           <h2 className="watch-title">Watch what the whales are doing</h2>
           <p className="watch-description">
@@ -67,11 +61,11 @@ const LeftSide = () => {
         <div className="border-seprator" />
         <div className="testimonial-wrap">
           <figure>
-            <img src={IconStar} alt="star icon" />
+            <img src={ICON_LINKS.starIcon} alt="star icon" />
           </figure>
           <article>
             <div className="testimonials-list">
-              {testimonials.map((testimonial, idx) => (
+              {TESTIMONIALS.map((testimonial, idx) => (
                 <TestimonialCard
                   key={idx}
                   quote={testimonial.quote}
@@ -86,4 +80,4 @@ const LeftSide = () => {
     </div>
   );
 };
-export default LeftSide;
+export default LeftSection;

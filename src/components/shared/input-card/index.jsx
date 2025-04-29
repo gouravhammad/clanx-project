@@ -1,5 +1,11 @@
 import React from "react";
-import IconCaretDown from "../../assets/icons/triangle-down.svg";
+
+// Styles
+import './styles.scss'
+
+// Constants
+import { ICON_LINKS } from "../../utils/constants";
+
 const InputCard = ({
   label,
   placeholder,
@@ -15,7 +21,7 @@ const InputCard = ({
         {cta?<span>Save</span>:<input type="checkbox"  />}
       </div>
       <p className={`input-label ${type !=="email"?"small-text":""}`}>{label}</p>
-      {type !=="email" ? <span className="input-wrap">{placeholder} <img src={IconCaretDown} alt="triangle down" /></span> : <input type={type} placeholder={placeholder} className="input-field" />}
+      {type !=="email" ? <span className="input-wrap">{placeholder} <img src={ICON_LINKS.bellFilledIcon} alt="triangle down" /></span> : <input type={type} placeholder={placeholder} className="input-field" />}
       
       {footerText && <p className="input-card-footer-text">{footerText}</p>}
     </div>

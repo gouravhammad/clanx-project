@@ -1,28 +1,5 @@
-// General
-$white: #ffffff;
-$black: #000000;
-
-// Grays
-$gray-100: #f2f2f2;
-$gray-300: #d4d4d4;
-$gray-500: #96979a;
-$gray-800: #19191a;
-
-// Backgrounds
-$background-dark: #222;
-$background-light: $white;
-$background-radial-green: rgba(31, 169, 17, 0.810119);
-$background-radial-blue: #2f15d0;
-$background-input: #f9f9f9;
-$background-form-button: $black;
-$background-form-button-hover: #333;
-
-// Border Colors
-$border-light: $gray-300;
-$border-dark: rgba(255, 255, 255, 0.68);
-
-// Misc
-$shadow-light: 0px 4px 10px 0px rgba(0, 0, 0, 0.04);
+// Variables
+@import "./styles/variables";
 
 #root {
   max-width: 1440px;
@@ -104,77 +81,6 @@ article {
         white-space: no-wrap;
         &::-webkit-scrollbar {
           display: none;
-        }
-
-        .input-card {
-          padding: 14px;
-          border-radius: 8px;
-          background: linear-gradient(0deg, $white, $white),
-            linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0.2) 27.5%,
-              rgba(22, 93, 255, 0.162) 157.71%
-            );
-          color: rgba(25, 25, 26, 1);
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          min-width: 190px;
-
-          .input-label {
-            font-size: 14px;
-            font-weight: 500;
-            padding-right: 40px;
-            margin: 14px 0 14px 0;
-          }
-          .input-label.small-text {
-            font-size: 11px;
-            padding-right: 25px;
-            margin: 9px 0 9px 0;
-          }
-          .input-field {
-            background: $white;
-            border: none;
-            font-weight: 500;
-            border: 0;
-            color: $gray-800;
-            height: 35px;
-            outline: none;
-            padding: 0 14px;
-            border-radius: 6px;
-            border: 0.7px solid rgba(212, 212, 212, 1);
-          }
-          .input-field::placeholder {
-            color: rgba(25, 25, 26, 1);
-          }
-          .input-wrap {
-            background: rgba(229, 229, 230, 0.5);
-            display: flex;
-            color: rgba(49, 50, 51, 1);
-            border-radius: 2.5px;
-            padding: 4px;
-            align-items: center;
-            font-size: 9px;
-            gap: 2.8px;
-            width: fit-content;
-          }
-          .input-card-footer-text {
-            color: rgba(25, 25, 26, 1);
-            font-size: 11px;
-            font-weight: 500;
-            margin-top: 8px;
-          }
-          .header-cta {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: auto;
-          }
-          .header-cta span {
-            font-size: 9px;
-            font-weight: 600;
-            cursor: pointer;
-          }
         }
         @media only screen and (max-width: 600px) {
           width: 100%;
@@ -261,31 +167,6 @@ article {
           flex-direction: row;
           gap: 1rem;
           padding-right: 1.25rem;
-          .testimonial-card {
-            background: rgba(255, 255, 255, 1);
-            padding: 1.25rem;
-            border-radius: 12px;
-            box-shadow: $shadow-light;
-            color: rgba(29, 33, 41, 1);
-            min-width: 353px;
-            text-align: left;
-            .testimonial-quote {
-              font-size: 16px;
-              font-weight: 500;
-            }
-
-            .testimonial-author {
-              font-size: 16px;
-              color: rgba(25, 25, 26, 1);
-              margin-bottom: 1.25rem;
-              font-weight: 600;
-            }
-            .testimonial-author span {
-              color: rgba(150, 151, 154, 1);
-              font-weight: 500;
-              font-size: 0.813rem;
-            }
-          }
         }
       }
       .testimonial-wrap {
@@ -311,6 +192,7 @@ article {
     align-items: center;
     padding: 2rem;
     width: 45%;
+    
     .sign-up-form {
       max-width: 21.25rem;
       width: 100%;

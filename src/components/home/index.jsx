@@ -1,16 +1,16 @@
 import React from "react";
 
-//Components
-import SignUpForm from "./SignUpForm";
-import LeftSide from "./LeftSide";
-
-//Styles
+// Styles
 import "../App.scss";
+
+// Components
+import SignUpForm from "../sign-up-form";
+import LeftSection from "../left-section";
 
 const Home = () => {
   return (
     <section className="main-wrapper">
-      <LeftSide />
+      <LeftSection />
       <div className="right-side">
         <SignUpForm />
       </div>
