@@ -2,7 +2,7 @@
 import './App.scss'
 
 // Component
-import Home from "./components/Home";
+import Home from "./components/home";
 
 function App() {
   return (
