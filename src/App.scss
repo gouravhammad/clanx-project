@@ -2,16 +2,21 @@
 @use "./styles/variables" as *;
 
 #root {
-  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
 }
 body {
   margin: 0;
-  background: #000;
+  background: white;
   color: $white;
   font-family: "Inter", sans-serif;
+  overflow: hidden;
+
+  @media only screen and (max-width: 600px) {
+    overflow: unset;
+  }
 }
 p,
 figure,

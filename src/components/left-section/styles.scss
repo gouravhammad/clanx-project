@@ -12,6 +12,13 @@
     $black 100%
   );
   width: 55%;
+  height: 100vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   .flex-row {
     display: flex;
     gap: 11px;
@@ -24,6 +31,7 @@
   }
   .first-section {
     margin-left: 60px;
+    position: relative;
     .header-wrap {
       width: 48%;
       padding-right: 40px;
@@ -52,7 +60,6 @@
       }
     }
     .shadow-box {
-      // Shadow on the left
       &::before {
         content: "";
         position: absolute;
@@ -62,18 +69,15 @@
         pointer-events: none;
         background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
       }
-
-      @media only screen and (max-width: 600px) {
-        &::after {
-          content: "";
-          position: absolute;
-          right: 0;
-          width: 80px; // Adjust width as needed
-          height: 171px;
-          z-index: 2;
-          pointer-events: none;
-          background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
-        }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 80px;
+        height: 171px;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
       }
     }
     .notification-inputs {
