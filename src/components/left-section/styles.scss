@@ -51,6 +51,30 @@
         width: 100%;
       }
     }
+    .shadow-box {
+      // Shadow on the left
+      &::before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 171px;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+      }
+
+      // Shadow on the right
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 80px; // Adjust width as needed
+        height: 171px;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
+      }
+    }
     .notification-inputs {
       display: flex;
       flex-direction: row;
@@ -140,7 +164,7 @@
         display: none;
       }
       overflow-x: auto;
-      padding-right: 1.875rem;
+
       .testimonials-list {
         display: flex;
         flex-direction: row;

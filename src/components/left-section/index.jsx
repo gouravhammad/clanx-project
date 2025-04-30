@@ -1,3 +1,6 @@
+// React
+import { useEffect, useState, useRef } from "react";
+
 // Components
 import InputCard from "../shared/input-card";
 import TestimonialCard from "../shared/testimonial-card";
@@ -9,31 +12,61 @@ import { LEFT_SECTION_CONTENT } from "./constants";
 // Styles
 import "./styles.scss";
 
-const NotificationSection = () => (
-  <div className="flex-row first-section">
-    <article className="header-wrap">
-      <span>
-        <img src={LEFT_SECTION_CONTENT.header?.icon} alt="Notification bell icon" />
-      </span>
-      <h1 className="header-title">{LEFT_SECTION_CONTENT.header?.title}</h1>
-      <p className="header-description">{LEFT_SECTION_CONTENT.header?.description}</p>
-    </article>
+const NotificationSection = () => {
+  const carouselRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-    <div className="notification-inputs">
-      {NOTIFICATIONS?.map((item, index) => (
-        <InputCard
-          key={`notification-${item.type}-${index}`}
-          label={item.label}
-          placeholder={item.placeholder}
-          type={item.type}
-          icon={item.icon}
-          footerText={item.footerText}
-          cta={item.cta}
-        />
-      ))}
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered && carouselRef.current) {
+        carouselRef.current.scrollLeft += 1;
+        if (
+          carouselRef.current.scrollLeft >=
+          carouselRef.current.scrollWidth - carouselRef.current.clientWidth
+        ) {
+          carouselRef.current.scrollLeft = 0;
+        }
+      }
+    }, 30);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  return (
+    <div className="flex-row first-section">
+      <article className="header-wrap">
+        <span>
+          <img
+            src={LEFT_SECTION_CONTENT.header?.icon}
+            alt="Notification bell icon"
+          />
+        </span>
+        <h1 className="header-title">{LEFT_SECTION_CONTENT.header?.title}</h1>
+        <p className="header-description">
+          {LEFT_SECTION_CONTENT.header?.description}
+        </p>
+      </article>
+
+      <div 
+        className="notification-inputs shadow-box" 
+        ref={carouselRef}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {[...NOTIFICATIONS, ...NOTIFICATIONS].map((item, index) => (
+          <InputCard
+            key={`notification-${item.type}-${index}`}
+            label={item.label}
+            placeholder={item.placeholder}
+            type={item.type}
+            icon={item.icon}
+            footerText={item.footerText}
+            cta={item.cta}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const WatchSection = () => (
   <div className="watch-section">
@@ -46,21 +79,31 @@ const WatchSection = () => (
     </figure>
     <article>
       <span>
-        <img src={LEFT_SECTION_CONTENT.watchSection?.icon} alt="Eye watching icon" />
+        <img
+          src={LEFT_SECTION_CONTENT.watchSection?.icon}
+          alt="Eye watching icon"
+        />
       </span>
       <h2 className="watch-title">{LEFT_SECTION_CONTENT.watchSection?.title}</h2>
-      <p className="watch-description">{LEFT_SECTION_CONTENT.watchSection?.description}</p>
+      <p className="watch-description">
+        {LEFT_SECTION_CONTENT.watchSection?.description}
+      </p>
     </article>
   </div>
 );
 
 const TestimonialSection = () => (
   <div className="testimonials">
-    <h3 className="testimonials-title">{LEFT_SECTION_CONTENT.testimonials?.title}</h3>
+    <h3 className="testimonials-title">
+      {LEFT_SECTION_CONTENT.testimonials?.title}
+    </h3>
     <div className="border-seprator" />
     <div className="testimonial-wrap">
       <figure>
-        <img src={LEFT_SECTION_CONTENT.testimonials?.icon} alt="Star icon for testimonials" />
+        <img
+          src={LEFT_SECTION_CONTENT.testimonials?.icon}
+          alt="Star icon for testimonials"
+        />
       </figure>
       <article>
         <div className="testimonials-list">
