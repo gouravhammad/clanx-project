@@ -13,18 +13,18 @@ import { LEFT_SECTION_CONTENT } from "./constants";
 import "./styles.scss";
 
 const NotificationSection = () => {
-  const carouselRef = useRef(null);
+  const notificationCarouselRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isHovered && carouselRef.current) {
-        carouselRef.current.scrollLeft += 1;
+      if (!isHovered && notificationCarouselRef.current) {
+        notificationCarouselRef.current.scrollLeft += 1;
         if (
-          carouselRef.current.scrollLeft >=
-          carouselRef.current.scrollWidth - carouselRef.current.clientWidth
+          notificationCarouselRef.current.scrollLeft >=
+          notificationCarouselRef.current.scrollWidth - notificationCarouselRef.current.clientWidth
         ) {
-          carouselRef.current.scrollLeft = 0;
+          notificationCarouselRef.current.scrollLeft = 0;
         }
       }
     }, 30);
@@ -48,7 +48,7 @@ const NotificationSection = () => {
 
       <div 
         className="notification-inputs shadow-box" 
-        ref={carouselRef}
+        ref={notificationCarouselRef}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -92,34 +92,59 @@ const WatchSection = () => (
   </div>
 );
 
-const TestimonialSection = () => (
-  <div className="testimonials">
-    <h3 className="testimonials-title">
-      {LEFT_SECTION_CONTENT.testimonials?.title}
-    </h3>
-    <div className="border-seprator" />
-    <div className="testimonial-wrap">
-      <figure>
-        <img
-          src={LEFT_SECTION_CONTENT.testimonials?.icon}
-          alt="Star icon for testimonials"
-        />
-      </figure>
-      <article>
-        <div className="testimonials-list">
-          {TESTIMONIALS?.map((testimonial, index) => (
-            <TestimonialCard
-              key={`testimonial-${index}`}
-              quote={testimonial.quote}
-              author={testimonial.author}
-              designation={testimonial.designation}
-            />
-          ))}
-        </div>
-      </article>
+const TestimonialSection = () => {
+  const testimonialCarouselRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered && testimonialCarouselRef.current) {
+        testimonialCarouselRef.current.scrollLeft += 1;
+        if (
+          testimonialCarouselRef.current.scrollLeft >=
+          testimonialCarouselRef.current.scrollWidth - testimonialCarouselRef.current.clientWidth
+        ) {
+          testimonialCarouselRef.current.scrollLeft = 0;
+        }
+      }
+    }, 30);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  return (
+    <div className="testimonials">
+      <h3 className="testimonials-title">
+        {LEFT_SECTION_CONTENT.testimonials?.title}
+      </h3>
+      <div className="border-seprator" />
+      <div className="testimonial-wrap">
+        <figure>
+          <img
+            src={LEFT_SECTION_CONTENT.testimonials?.icon}
+            alt="Star icon for testimonials"
+          />
+        </figure>
+        <article>
+          <div 
+            className="testimonials-list"
+            ref={testimonialCarouselRef}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {[...TESTIMONIALS, ...TESTIMONIALS]?.map((testimonial, index) => (
+              <TestimonialCard
+                key={`testimonial-${index}`}
+                quote={testimonial.quote}
+                author={testimonial.author}
+                designation={testimonial.designation}
+              />
+            ))}
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
 const LeftSection = () => (
   <div className="left-side">
